@@ -44,7 +44,7 @@ body {
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: 'Signika',"Google Sans",Roboto,Arial,sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 48px;
@@ -78,7 +78,6 @@ body {
 
 .button-17:focus {
   outline: none;
-  border: 2px solid whitesmoke;
 }
 
 .button-17:not(:disabled) {
@@ -99,4 +98,9 @@ body {
 
 .button-17:disabled {
   box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.content > form {
+    display: flex;
+    justify-content: space-evenly;
 }
