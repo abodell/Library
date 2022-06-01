@@ -48,6 +48,8 @@ const styleCard = (book) => {
     const bookAuthor = document.createElement('h2');
     const bookPages = document.createElement('h2');
     const bookRead = document.createElement('button');
+    bookRead.id = library.indexOf(book);
+    bookRead.addEventListener('click', toggleRead);
     const deleteBook = document.createElement('button');
 
     card.classList.add('book-card');
@@ -59,8 +61,11 @@ const styleCard = (book) => {
     bookPages.textContent = book.pages;
     if (book.isRead) {
         bookRead.textContent = 'Finished!';
+        bookRead.style.backgroundColor = '#C9E58D';
     } else {
         bookRead.textContent = 'In Progress!';
+        bookRead.style.backgroundColor = '#1DA7BD';
+        bookRead.style.color = '#F4EBDA'
     }
     deleteBook.textContent= 'Delete from Library';
 
@@ -92,5 +97,14 @@ const addBook = (event) => {
 }
 
 // have to do delete and toggle read
+const toggleRead = (event) => {
+    console.log(event.target.id);
+    const book = library[event.target.id];
+    book.isRead = !book.isRead;
+    clearDisplay();
+    displayBooks(library);
+}
+
+
 
 form.addEventListener('submit', addBook);
