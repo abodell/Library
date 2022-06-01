@@ -1,4 +1,4 @@
-library = []; // where books will be stored
+const library = []; // where books will be stored
 
 // get all elements we will need to access
 const title = document.querySelector('#title');
@@ -6,6 +6,9 @@ const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const isRead = document.querySelector('#read');
 const bookDisplay = document.querySelector('.book-display');
+const submitButton = document.querySelector(".button-47");
+const form = document.querySelector('.register-book');
+
 
 function Book(title, author, pages, isRead) { // book object
     this.title = title;
@@ -20,28 +23,23 @@ Book.prototype.addToLibrary = function() {
     library.push(this);
 }
 
-const book1 = new Book('Ashshs', 'ashhs', 200, true);
-const book2 = new Book('asjhsakh', 'ajskjsa', 300, true);
-const book3 = new Book('ajshkajs', 'asshasjh', 500, true);
-const book4 = new Book('ashjhsag', 'ashbx', 300, false);
-const book5 = new Book('asjsjs', 'akshsah', 800, false);
-
-book1.addToLibrary();
-book2.addToLibrary();
-book3.addToLibrary();
-book4.addToLibrary();
-book5.addToLibrary();
-
 const makeBook = () => {
-    const title = title.value;
-    const author = author.value;
-    const pages = pages.value;
-    const isRead = isRead.checked;
-    return new Book(title, author, pages, isRead);
+    const newTitle = title.value;
+    const newAuthor = author.value;
+    const newPages = pages.value;
+    const newIsRead = isRead.checked;
+    return new Book(newTitle, newAuthor, newPages, newIsRead);
 }
 
-const toggleRead = (book) => {
+Book.prototype.toggleRead = (book) => {
     book.isRead = !book.isRead;
+}
+
+const clearInputs = () => {
+    title.value = '';
+    pages.value = '';
+    author.value = '';
+    isRead.checked = false;
 }
 
 const styleCard = (book) => {
@@ -78,9 +76,21 @@ const displayBooks = (library) => {
     for (let i = 0; i < library.length; i++) {
         styleCard(library[i]);
     }
+};
+
+const clearDisplay = () => {
+    bookDisplay.innerHTML = "";
 }
 
-displayBooks(library);
+const addBook = (event) => {
+    event.preventDefault();
+    const book = makeBook();
+    book.addToLibrary();
+    clearDisplay();
+    displayBooks(library);
+    clearInputs();
+}
 
+// have to do delete and toggle read
 
-
+form.addEventListener('submit', addBook);
