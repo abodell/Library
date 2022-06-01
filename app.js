@@ -57,9 +57,9 @@ const styleCard = (book) => {
     bookRead.classList.add('toggle-read');
     deleteBook.classList.add('delete-button');
 
-    bookTitle.textContent = book.title;
-    bookAuthor.textContent = book.author;
-    bookPages.textContent = book.pages;
+    bookTitle.textContent = 'Title: ' + book.title;
+    bookAuthor.textContent = 'Author: ' + book.author;
+    bookPages.textContent = '# Pages: ' + book.pages;
     if (book.isRead) {
         bookRead.textContent = 'Finished!';
         bookRead.style.backgroundColor = '#C9E58D';
