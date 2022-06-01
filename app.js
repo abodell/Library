@@ -51,6 +51,7 @@ const styleCard = (book) => {
     bookRead.id = library.indexOf(book);
     bookRead.addEventListener('click', toggleRead);
     const deleteBook = document.createElement('button');
+    deleteBook.addEventListener('click', removeBook);
 
     card.classList.add('book-card');
     bookRead.classList.add('toggle-read');
@@ -68,6 +69,8 @@ const styleCard = (book) => {
         bookRead.style.color = '#F4EBDA'
     }
     deleteBook.textContent= 'Delete from Library';
+    deleteBook.style.backgroundColor = '#ED6153';
+    deleteBook.style.color = 'black';
 
     card.appendChild(bookTitle);
     card.appendChild(bookAuthor);
@@ -98,9 +101,15 @@ const addBook = (event) => {
 
 // have to do delete and toggle read
 const toggleRead = (event) => {
-    console.log(event.target.id);
     const book = library[event.target.id];
     book.isRead = !book.isRead;
+    clearDisplay();
+    displayBooks(library);
+}
+
+const removeBook = (event) => {
+    const book = library[event.target.id];
+    library.splice(library.indexOf(book), 1);
     clearDisplay();
     displayBooks(library);
 }
