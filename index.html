@@ -9,13 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <script defer src = 'app.js'></script>
 </head>
 <body>
     <div class="header">
         <img src ='images/book-icon-157.png'>
         <h1>Library</h1>
         <form class = 'login'>
-            <button class="button-17" type = 'submit'>Login</button>
+            <button class="button-17" type = 'button'>Login</button>
         </form>
     </div>
     <div class="content">
@@ -30,14 +31,14 @@
             </div>
             <div class="book pages">
                 <label for = 'pages'># Of Pages</label>
-                <input id = 'pages' type = 'text' required>
+                <input id = 'pages' type = 'number' min = '1' required>
             </div>
             <div class="book read">
                 <label for = 'read'>Already Read?</label>
-                <input id = 'read' type = 'checkbox' required>
+                <input id = 'read' type = 'checkbox'>
             </div>
             <div class="add-book">
-                <button class="button-47" type = 'submit'>Add Book</button>
+                <button class="button-47" type = 'submit' >Add Book</button>
             </div>
         </form>
         <div class="display">
