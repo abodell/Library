@@ -1,2 +1,2 @@
 # Library
-Library web application in order to keep track of the books you have read or the ones you plan on reading in the future.  Currently does not have a backend set up, so the books are stored in an array. 
+Library web application in order to keep track of the books you have read or the ones you plan on reading in the future.  Input the title, the author, the number of pages, and if you have read the book or not.  After finishing a book, you can either mark it as read and keep it in your library, or you can remove it from your library completely.  Currently does not have a backend set up, so the books are stored in an array. Hosted on https://abodell.github.io/Library/
