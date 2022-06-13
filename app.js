@@ -10,18 +10,23 @@ const submitButton = document.querySelector(".button-47");
 const form = document.querySelector('.register-book');
 
 
-function Book(title, author, pages, isRead) { // book object
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+    addToLibrary() {
+        library.push(this);
+    }
+    toggleRead(book) {
+        book.isRead = !book.isRead;
+    }
 }
 
 Book.constructor.prototype = Book; // setting the constructor for all Book prototypes
 
-Book.prototype.addToLibrary = function() {
-    library.push(this);
-}
 
 const makeBook = () => {
     const newTitle = title.value;
@@ -31,9 +36,6 @@ const makeBook = () => {
     return new Book(newTitle, newAuthor, newPages, newIsRead);
 }
 
-Book.prototype.toggleRead = (book) => {
-    book.isRead = !book.isRead;
-}
 
 const clearInputs = () => {
     title.value = '';
